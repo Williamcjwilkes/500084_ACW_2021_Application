@@ -8,46 +8,40 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-
     <header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand text-muted">
-                    <img src="~Images/UoH_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Notice board application
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark text-muted" asp-area="" asp-controller="Home" asp-action="Index">My Boards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark text-muted" asp-area="" asp-controller="Home" asp-action="More">More</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark text-muted" asp-area="" asp-controller="Home" asp-action="Boardoftheday">Board of the day </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark text-muted" asp-area="" asp-controller="Home" asp-action="help">Help</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand text-muted">
+                <img src="~Images/UoH_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Notice board application
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="Index">My Boards</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="More">More</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="Boardoftheday">Board of the day </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="help">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <div class="container-fluid">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main">
+        @RenderBody()
+    </main>
     <!-- Footer -->
     <footer class="page-footer pt-4">
         <div class="container-fluid text-center text-md-left border-top pt-5">
             <div class="row">
-
                 <!-- left side footer -->
                 <div class="col-md-6 mt-md-0 mt-3">
                     <h5 class="text-uppercase text-muted ">500084_ACW_2021_Web_Application</h5>
@@ -74,7 +68,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="col-md-3 mb-md-0 mb-3">
                     <!-- sitemap -->
                     <h5 class="text-uppercase text-muted">Contact us</h5>
@@ -93,14 +86,12 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+        </footer>
+      </body>
 </html>
