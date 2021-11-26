@@ -4,20 +4,23 @@
 /* body, HTML */
 html {
     position: relative;
-}
-
-html {
     font-size: 16px;
+    color: #f5f5f5 !important;
 }
+.h1 .h2 .h3 .h4 .h5 .h6 {
+    font-family: 'lato', sans-serif;
 
+}
+p{
+    font-weight:100;
+}
 @media (min-width: 768px) {
     html {
         font-size: 1.2rem;
     }
 }
 body {
-    margin-block-start: 0px !important;
-    /* Margin bottom by footer height */
+    background-color:#f5f5f5;
 }
 
 
@@ -43,8 +46,8 @@ a.navbar-brand {
     }
 
     .navbar ul li a:hover {
-    color: white !important;
-}
+        color: #f5f5f5!important;
+    }
 
 @keyframes fadeInOpacity {
     0% {
@@ -57,34 +60,22 @@ a.navbar-brand {
 }
 /* footer styles */
 
-.footer {
-    position: absolute;
-    padding:0px;
-    margin:0px;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
-}
+
 
 .page-footer {
     background-color: rgb(1,130,138) !important;
-    color: white !important;
+    color: #f5f5f5 !important;
 }
 
-.footer h5 .a {
-    color:white!important;
-}
-.footer ul li{
-    padding-top:0px!important;
-    margin-top:0px!important
-}
+
+
 
 /* Jumbotron styles */
 
 .jumbotron {
     margin-top: 0px;
-    background-color: transparent !important;
+    background-color: rgb(1,130,138) !important;
+    color: #f5f5f5 !important;
 }
 
     .jumbotron h1 {
@@ -101,6 +92,8 @@ a.navbar-brand {
 .border {
     border-style: solid !important;
     border-width: 5px !important;
+    background-color: rgb(1,130,138) !important;
+    color: #f5f5f5 !important;
 }
 
 .border-top {
@@ -125,27 +118,45 @@ button.accept-policy {
     margin: 0px !important;
 }
 
-.container-fluid {
-    padding:0px!important;
-    margin:0px!important;
+.carousel-caption {
+    max-width: 100%;
+    width: 100%;
+    background-color: rgb(190,77,1);
+    left: 0;
+    top: auto;
+    bottom: 0;
 }
 
 
+.card-post-styles{
+    border-radius: 25px 25px 0 0 !important;
+}
 
+
+.card {
+    background-color: rgb(1,130,138) !important;
+    border-color: rgb(206,2,88) !important;
+    border-radius: 25px;
+}
+.card-text {
+    color: #f5f5f5 !important;
+}
+.card-glow{
+}
 
 a {
-    color: #ffffff;
+    color: #f5f5f5 !important;
     font-size: 1.3rem;
 }
 
 .btn-primary {
-    color: #fff;
+    color: #f5f5f5 !important;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
+    color: #f5f5f5 !important;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }

@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - Notice Board</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -38,39 +41,17 @@
     <main role="main">
         @RenderBody()
     </main>
+
     <!-- Footer -->
-    <footer class="page-footer pt-4">
-        <div class="container-fluid text-center text-md-left border-top pt-5">
-            <div class="row">
-                <!-- left side footer -->
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <h5 class="text-uppercase ">500084_ACW_2021_Web_Application</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat massa id sem dictum, ac porta justo accumsan. Pellentesque aliquam ut urna vitae condimentum. Sed interdum nibh et est viverra molestie. Fusce venenatis finibus interdum. Sed augue leo, scelerisque id dui a, euismod elementum justo. Aliquam sollicitudin finibus interdum. Proin.</p>
-                </div>
-                <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <!-- sitemap -->
-                    <h5 class="text-uppercase ">SiteMap</h5>
-                        <h5 class="text-uppercase">Contact us</h5>
-                        <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="Index">Link 1</a>
-                        <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="More">Link 2</a>
-                        <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="Boardoftheday">Link 3</a>
-                        <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="help">Link 4</a>
-                </div>
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <!-- sitemap -->
-                    <h5 class="text-uppercase">Contact us</h5>
-                    <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="Index">Link 1</a>
-                    <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="More">Link 2</a>
-                    <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="Boardoftheday">Link 3</a>
-                    <a class="nav-link text-dark  " asp-area="" asp-controller="Home" asp-action="help">Link 4</a>
-                </div>
-            </div>
+    <footer class="text-center text-lg-start">
+        <div class="footer-copyright page-footer text-center py-3">
+            00084_ACW_2021:
+            <a href=""> Web_Application</a>
         </div>
+    </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @await RenderSectionAsync("Scripts", required: false)
-        </footer>
-      </body>
+</body>
 </html>
