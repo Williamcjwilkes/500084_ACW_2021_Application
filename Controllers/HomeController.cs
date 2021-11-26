@@ -18,6 +18,10 @@ namespace _500084_ACW_2021_Web_Application.Controllers
             _logger = logger;
         }
 
+        public IActionResult Homepage()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

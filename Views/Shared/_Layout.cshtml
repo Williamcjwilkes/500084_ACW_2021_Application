@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="Index">My Boards</a>
+                        <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="HomePage">My Boards</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light text-muted" asp-area="" asp-controller="Home" asp-action="More">More</a>
@@ -38,6 +38,10 @@
             </div>
         </nav>
     </header>
+
+    <div class="jumbotron jumbotron-fluid mb-0">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+    </div>
     <main role="main">
         @RenderBody()
     </main>
@@ -49,9 +53,9 @@
             <a href=""> Web_Application</a>
         </div>
     </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

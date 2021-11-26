@@ -19,7 +19,4 @@
   <ItemGroup>
     <None Remove="Views\Home\Images\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Home\Images\" />
-  </ItemGroup>
 </Project>
