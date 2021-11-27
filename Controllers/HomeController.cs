@@ -11,7 +11,8 @@ namespace _500084_ACW_2021_Web_Application.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
+        private readonly ILogger<HomeController>_logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -26,6 +27,23 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         {
             return View();
         }
+        public IActionResult CreateUser()
+        {
+            return View();
+        }
+
+        public IActionResult Login(User_Model user_model)
+        {
+            if (user_model.Username == "admin" && user_model.Password == "admin")
+            {
+                return View("Success", user_model);
+            }
+            else
+            {
+                return View("Failure", user_model);
+            }
+        }
+
         public IActionResult More()
         {
             return View();
