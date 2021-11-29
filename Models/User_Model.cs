@@ -9,24 +9,32 @@ namespace _500084_ACW_2021_Web_Application.Models
 {
     public class User_Model
     {
+        public int ID { get; set; }
+
         [Required]
         [DisplayName("Please enter a username")]
         public string Username { get; set; }
-        [Required]
-        [DisplayName("Please enter your first name")]
-        public string FirstName { get; set; }
-        [Required]
-        [DisplayName("Please enter you last name ")]
-        public string LastName { get; set; }
+
         [Required]
         [DisplayName("Please enter a password")]
         public string Password { get; set; }
+
         [Required]
         [DisplayName("Please enter you email address")]
         public string EmailAddress { get; set; }
+
+        [Required]
+        [DisplayName("Please enter your first name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [DisplayName("Please enter you last name ")]
+        public string LastName { get; set; }
+
         [Required]
         [DisplayName("Please enter a valid option")]
-        public int AccType { get; set; }  
+        public string AccType { get; set; }  
+
         [Required]
         [DisplayName("Please tick at least one society to subscribe to ")]
         public string Subscriptions { get; set; }
