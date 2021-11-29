@@ -9,10 +9,10 @@ namespace _500084_ACW_2021_Web_Application.Controllers
 {
     public class CreateUser : Controller
     {
-        public void CreateUserDB(string Username, string Password, string EmailAddress, string FirstName, string LastName, int AccType, string Subscriptions)
+        public void CreateUserDB(Models.User_Model newUser)
         {
-            DBInterfacer newUser = new DBInterfacer();
-            newUser.CreateUser(Username, Password, EmailAddress, FirstName, LastName, AccType, Subscriptions);
+            DBInterfacer modifyDB = new DBInterfacer();
+            modifyDB.CreateUser(newUser);
 
         }
     }
