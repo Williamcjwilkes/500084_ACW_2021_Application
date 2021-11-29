@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand text-muted">
                 <img src="~Images/UoH_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Notice board application
@@ -38,21 +39,25 @@
             </div>
         </nav>
     </header>
-
+    <!-- JumboTron -->
     <div class="jumbotron jumbotron-fluid mb-0">
         <h1 class="display-4">@ViewData["Title"]</h1>
+        <h4> Welcone back!</h4>
     </div>
     <main role="main">
         @RenderBody()
     </main>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start">
+    <footer class="text-center navbar-fixed-bottom text-lg-start">
         <div class="footer-copyright page-footer text-center py-3">
             00084_ACW_2021:
             <a href=""> Web_Application</a>
         </div>
     </footer>
+    
+    
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

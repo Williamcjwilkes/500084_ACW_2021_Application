@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// form validation for the front end inputs
 
-// Write your JavaScript code.
+function ValidateInputs() {
+    let x = document.forms["Login"]["UserName"].value;
+    let y = document.forms["Login"]["Password"].value;
+
+    if (x == "" || y == "")
+    {
+        document.getElementById("uErrorMesage").innerHTML = "Please enter a username!";
+        document.getElementById("pErrorMesage").innerHTML = "Please enter a PassWord!";
+        return false;
+
+    }
+}

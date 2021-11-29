@@ -11,9 +11,8 @@ namespace _500084_ACW_2021_Web_Application
     public class DBInterfacer
     {
 
-        public string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Systems_Analysis_Users.db";
-
-        public String[] GetUserData(String username) //Gets the userdata from the database
+        public string dBase = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "Systems_Analysis_Users.db");
+        public String[] GetUserData(string username) //Gets the userdata from the database
         {
             String[] userData = new String[8];
             var connection = new SQLiteConnection(dBase);
@@ -40,7 +39,6 @@ namespace _500084_ACW_2021_Web_Application
                 userData[0] = null;
                 return userData;
             }
-
             connection.Close();
             return userData;
         }

@@ -13,12 +13,29 @@ namespace _500084_ACW_2021_Web_Application.Controllers
     {
         
         private readonly ILogger<HomeController>_logger;
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+        // need to compare the input to the database user and password
+        public IActionResult Login(string Username, string Password)
+        {
+            DBInterfacer userData = new DBInterfacer();
+            userData.GetUserData(Username);
+            User_Model user = new User_Model(); 
 
+            if ( user.Password == Password)
+            {
+                return View("success", user);
+            }
+            else
+            {
+                return View("Failure", user);
+            }
+        }
+
+
+        // returning views
         public IActionResult Homepage()
         {
             return View();
@@ -31,19 +48,6 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         {
             return View();
         }
-
-        public IActionResult Login(User_Model user_model)
-        {
-            if (user_model.Username == "admin" && user_model.Password == "admin")
-            {
-                return View("Success", user_model);
-            }
-            else
-            {
-                return View("Failure", user_model);
-            }
-        }
-
         public IActionResult More()
         {
             return View();
