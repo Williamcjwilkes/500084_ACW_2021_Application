@@ -12,7 +12,7 @@ namespace _500084_ACW_2021_Web_Application
     {
 
         private string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Models\\Systems_Analysis_Users.db";
-        public Models.User_Model GetUserData(string username) //Gets the userdata from the database
+        public Models.User_Model GetUserData(string username) //Gets the userdata from the database and inputs it into a user object
         {
             var connection = new SQLiteConnection(dBase);
             Models.User_Model currentUser = new Models.User_Model();
@@ -54,7 +54,7 @@ namespace _500084_ACW_2021_Web_Application
             connection.Close();
         }
 
-        public void CreateMessage(string fromUser, string toUser)
+        public void CreateMessage(string fromUser, string toUser) //Creates a new message header entry for when a user wants to message another user they have not messaged before
         {
             string request = "INSERT INTO Message_Header(fromUser, toUser) VALUES ('" + fromUser + "','" + toUser + "')";
 
@@ -67,7 +67,7 @@ namespace _500084_ACW_2021_Web_Application
 
         }
 
-        public void SendMessage(Models.Message_Model newMsg)
+        public void SendMessage(Models.Message_Model newMsg) //Adds a message object that has been passed to this method into the database
         {
             string request = "INSERT INTO Messages(headerID, content, read, isFrom, time) VALUES ('" + newMsg.HeaderID + "','" + newMsg.Content + "','" + newMsg.Read + "','" + newMsg.IsFrom + "','" + newMsg.Time + "')";
             var connection = new SQLiteConnection(dBase);
@@ -80,7 +80,7 @@ namespace _500084_ACW_2021_Web_Application
             connection.Close();
         }
 
-        public List<Models.Message_Header_Model> OpenUserMessageHeaders(string userName)
+        public List<Models.Message_Header_Model> OpenUserMessageHeaders(string userName) //Opens all the message headers associated to the logged in user, allowing then for a search of specific message logs
         {
             List<Models.Message_Header_Model> msgHeaders = new List<Models.Message_Header_Model>();
             string request = "SELECT id, fromUser, toUser FROM 'Message_Header' WHERE fromID = '" + userName + "' OR toID = '" + userName + "'";
@@ -104,7 +104,7 @@ namespace _500084_ACW_2021_Web_Application
             return msgHeaders;
         }
 
-        public List<Models.Message_Model> OpenUserMessages(Models.Message_Header_Model msgHeader)
+        public List<Models.Message_Model> OpenUserMessages(Models.Message_Header_Model msgHeader) //Opens a message log with another user based on a message header pointer
         {
             List<Models.Message_Model> messages = new List<Models.Message_Model>();
             string request = "SELECT id, headerID, content, read, isFrom, time FROM 'Messages' WHERE headerID = '" + msgHeader.ID + "'";
@@ -134,7 +134,7 @@ namespace _500084_ACW_2021_Web_Application
             return messages;
         }
 
-        public List<Models.Boards_Model> GetAllBoards()
+        public List<Models.Boards_Model> GetAllBoards() //Gets all the boards that have been created, could maybe look into adding a page system later?
         {
             string request = "SELECT name, numUsers, isSociety, description FROM 'Boards'";
             List<Models.Boards_Model> boards = new List<Models.Boards_Model> ();
@@ -160,7 +160,7 @@ namespace _500084_ACW_2021_Web_Application
             return boards;
         }
 
-        public List<Models.Boards_Model> GetUserBoards(string subscriptions)
+        public List<Models.Boards_Model> GetUserBoards(string subscriptions) //Gets the boards that the user is subscribed to, requires a method sending the logged in users subscriptions
         {
             List<Models.Boards_Model> boards = new List<Models.Boards_Model>();
             string[] userBoards = (subscriptions.Split(','));
@@ -190,7 +190,7 @@ namespace _500084_ACW_2021_Web_Application
             return boards;
         }
 
-        public List<Models.Boards_Post_Model> GetBoardMessages(int fromID)
+        public List<Models.Boards_Post_Model> GetBoardPosts(int fromID) //Gets all the posts associated with a board to be displayed
         {
             string request = "SELECT title, message, date FROM 'Board_Messages' WHERE boardFrom = '" + fromID + "'";
             List<Models.Boards_Post_Model> boardPosts = new List<Models.Boards_Post_Model>();
@@ -216,8 +216,5 @@ namespace _500084_ACW_2021_Web_Application
             return boardPosts;
         }
 
-
-        // created for testing
-        // please remove from 
     }
 }
