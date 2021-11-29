@@ -54,9 +54,9 @@ namespace _500084_ACW_2021_Web_Application
             connection.Close();
         }
 
-        public void CreateMessage(int fromUser, int toUser)
+        public void CreateMessage(string fromUser, string toUser)
         {
-            string request = "INSERT INTO Message_Header(fromID, toID) VALUES ('" + fromUser + "','" + toUser + "')";
+            string request = "INSERT INTO Message_Header(fromUser, toUser) VALUES ('" + fromUser + "','" + toUser + "')";
 
             var connection = new SQLiteConnection(dBase);
             connection.Open();
