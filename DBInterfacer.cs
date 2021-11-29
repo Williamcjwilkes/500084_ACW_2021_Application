@@ -11,7 +11,7 @@ namespace _500084_ACW_2021_Web_Application
     public class DBInterfacer
     {
 
-        public string dBase = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "Systems_Analysis_Users.db");
+        private string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Models\\Systems_Analysis_Users.db";
         public String[] GetUserData(string username) //Gets the userdata from the database
         {
             String[] userData = new String[8];
@@ -184,7 +184,6 @@ namespace _500084_ACW_2021_Web_Application
             connection.Close();
             return boardMessages;
         }
-
 
 
         // created for testing
