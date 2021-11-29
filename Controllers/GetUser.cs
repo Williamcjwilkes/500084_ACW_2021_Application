@@ -9,6 +9,11 @@ namespace _500084_ACW_2021_Web_Application.Controllers
 {
     public class GetUser : Controller
     {
+        public void getUser(string userName)
+        {
+            DBInterfacer getData = new DBInterfacer();
+            getData.GetUserData(userName);
 
+        }
     }
 }
