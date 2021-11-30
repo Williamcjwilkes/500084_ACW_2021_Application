@@ -11,32 +11,28 @@ namespace _500084_ACW_2021_Web_Application
     public class DBInterfacer
     {
 
-        private string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Models\\Systems_Analysis_Users.db";
+        private string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Models\\Web_Application.db";
         public Models.User_Model GetUserData(string username) //Gets the userdata from the database and inputs it into a user object
         {
-            var connection = new SQLiteConnection(dBase);
             Models.User_Model currentUser = new Models.User_Model();
-
-            connection.Open();
             string query = "SELECT * FROM 'Users' where username='" + username + "'";
+            var connection = new SQLiteConnection(dBase);
+            connection.Open();
+  
             var command = new SQLiteCommand(query, connection);
             SQLiteDataReader dataReader = command.ExecuteReader();
 
-            try
-            {
-                currentUser.ID = Int32.Parse(dataReader.GetString(0));
-                currentUser.Username = dataReader.GetString(1);
-                currentUser.Password = dataReader.GetString(2);
-                currentUser.EmailAddress = dataReader.GetString(3);
-                currentUser.FirstName = dataReader.GetString(4);
-                currentUser.LastName = dataReader.GetString(5);
-                currentUser.AccType = dataReader.GetString(6);
-                currentUser.Subscriptions = dataReader.GetString(7);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("If something errored out here, it *probably* means that nothing is in the database. Return null to notify rest of program of issue");         
-            }
+                while (dataReader.Read())
+                {
+                    currentUser.Username = dataReader.GetString(1);
+                    currentUser.Password = dataReader.GetString(2);
+                    currentUser.EmailAddress = dataReader.GetString(3);
+                    currentUser.FirstName = dataReader.GetString(4);
+                    currentUser.LastName = dataReader.GetString(5);
+                    currentUser.AccType = dataReader.GetString(6);
+                    currentUser.Subscriptions = dataReader.GetString(7);
+                }  
+            
             connection.Close();
             return currentUser;
         }
@@ -62,9 +58,7 @@ namespace _500084_ACW_2021_Web_Application
             connection.Open();
             var command = new SQLiteCommand(request, connection);
             command.ExecuteNonQuery();
-
             connection.Close();
-
         }
 
         public void SendMessage(Models.Message_Model newMsg) //Adds a message object that has been passed to this method into the database

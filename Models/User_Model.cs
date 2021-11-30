@@ -9,8 +9,6 @@ namespace _500084_ACW_2021_Web_Application.Models
 {
     public class User_Model
     {
-        public int ID { get; set; }
-
         [Required]
         [DisplayName("Please enter a username")]
         public string Username { get; set; }
