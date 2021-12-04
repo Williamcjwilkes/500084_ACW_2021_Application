@@ -42,8 +42,7 @@ namespace _500084_ACW_2021_Web_Application
             var connection = new SQLiteConnection(dBase);
 
             connection.Open();
-            string query = "INSERT INTO Users(username, password, email, forename, surname, accType, subscriptions) VALUES ('" + newUser.Username + "','" + newUser.Password + "','" + newUser.EmailAddress + "','" + newUser.FirstName + "','" + newUser.LastName + "','" + newUser.AccType + "','" + newUser.Subscriptions + "')";
-            var command = new SQLiteCommand(query, connection);
+            string query = "INSERT INTO Users(username, password, email, forename, surname, accType, subscriptions) VALUES ('" + newUser.Username + "','" + newUser.Password + "','" + newUser.EmailAddress + "','" + newUser.FirstName + "','" + newUser.LastName + "','" + newUser.AccType + "','" + newUser.Subscriptions + "')"; var command = new SQLiteCommand(query, connection);
             command.ExecuteNonQuery();
 
             //add confirmation

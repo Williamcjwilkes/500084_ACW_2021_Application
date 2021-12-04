@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model _500084_ACW_2021_Web_Application.Models.User_Model
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -42,7 +43,9 @@
     <!-- JumboTron -->
     <div class="jumbotron jumbotron-fluid mb-0">
         <h1 class="display-4">@ViewData["Title"]</h1>
-        <h4> Welcone back!</h4>
+        <h4 class="">
+            Welcome back, @Html.DisplayFor(model => model.Username)
+        </h4>
     </div>
     <main role="main">
         @RenderBody()
@@ -55,8 +58,8 @@
             <a href=""> Web_Application</a>
         </div>
     </footer>
-    
-    
+
+
     <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -38,5 +38,5 @@ namespace _500084_ACW_2021_Web_Application.Models
         public string Subscriptions { get; set; }
     }
 
-
+     
 }

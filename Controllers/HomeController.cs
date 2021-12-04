@@ -1,4 +1,5 @@
-﻿using System;
+﻿ 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -17,18 +18,18 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         {
             _logger = logger;
         }
-        // need to compare the input to the database user and password
-        public IActionResult Login(string Username, string Password)
+        public IActionResult Login(string userName, string password)
         {
             DBInterfacer userData = new DBInterfacer();
-            userData.GetUserData(Username);
-            User_Model user = new User_Model(); 
-
-            if ( user.Password == Password)
+            // create the empty user model 
+            User_Model user = new User_Model();
+            user = userData.GetUserData(userName);
+             
+            if ( password == user.Password)
             {
-                return View("success", user);
+                return View("Homepage", user);
             }
-            else
+            else 
             {
                 return View("Failure", user);
             }
@@ -36,7 +37,7 @@ namespace _500084_ACW_2021_Web_Application.Controllers
 
 
         // returning views
-        public IActionResult Homepage()
+        public IActionResult Homepage(User_Model user)
         {
             return View();
         }
@@ -44,9 +45,15 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         {
             return View();
         }
-        public IActionResult CreateUser()
+        public IActionResult CreateUser(User_Model createUser)
         {
-            return View();
+            DBInterfacer user = new DBInterfacer();
+            createUser.AccType = "admin";
+            createUser.Subscriptions = "CS , Gardening";
+            user.CreateUser(createUser);
+            
+
+            return View("CreateUser");
         }
         public IActionResult More()
         {
