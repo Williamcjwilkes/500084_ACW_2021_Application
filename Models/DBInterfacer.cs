@@ -12,6 +12,7 @@ namespace _500084_ACW_2021_Web_Application
     {
 
         private string dBase = @"URI=file:" + Directory.GetCurrentDirectory() + "\\Models\\Web_Application.db";
+
         public Models.User_Model GetUserData(string username) //Gets the userdata from the database and inputs it into a user object
         {
             Models.User_Model currentUser = new Models.User_Model();
@@ -126,6 +127,80 @@ namespace _500084_ACW_2021_Web_Application
 
             connection.Close();
             return messages;
+        }
+
+        public void CreateBoard(Models.Boards_Model newBoard) //Creates a new board
+        {
+            var connection = new SQLiteConnection(dBase);
+
+            connection.Open();
+            string query = "INSERT INTO Boards(name, isSociety, description) VALUES ('" + newBoard.Name + "','" + newBoard.IsSociety + "','" + newBoard.Description + "')";
+            var command = new SQLiteCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            //add confirmation
+            connection.Close();
+        }
+
+        public void SubscribetoBoard(string boardName, Models.User_Model currentUser) //Subscribes the user to a selected board
+        {
+            var connection = new SQLiteConnection(dBase);
+            int numUsers = 0;         
+
+            connection.Open();
+            string query = "SELECT numUsers FROM 'Boards' WHERE name = '" + boardName + "'";
+            var command = new SQLiteCommand(query, connection);
+            SQLiteDataReader dataReader = command.ExecuteReader();
+
+            numUsers = Int32.Parse(dataReader.GetString(0));
+
+            query = "UPDATE Boards SET numUsers = '" + (numUsers+1) + "' WHERE name = '" + boardName + "'";
+            command = new SQLiteCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            currentUser.Subscriptions = currentUser.Subscriptions + boardName + ",";
+            query = "UPDATE Users SET subsciptions = '" + currentUser.Subscriptions + "' WHERE username = '" + currentUser.Username + "'";
+
+            //add confirmation
+            connection.Close();
+        }
+
+        public void UnsubBoard(string boardName, Models.User_Model currentUser) //Unsubscribes the user to a selected board
+        {
+            var connection = new SQLiteConnection(dBase);
+            int numUsers = 0;
+            string newsubs = "";
+            int c = 0;
+
+            connection.Open();
+            string query = "SELECT numUsers FROM 'Boards' WHERE name = '" + boardName + "'";
+            var command = new SQLiteCommand(query, connection);
+            SQLiteDataReader dataReader = command.ExecuteReader();
+
+            numUsers = Int32.Parse(dataReader.GetString(0));
+
+            query = "UPDATE Boards SET numUsers = '" + (numUsers - 1) + "' WHERE name = '" + boardName + "'";
+            command = new SQLiteCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            string[] userBoards = (currentUser.Subscriptions.Split(','));
+
+            while(userBoards.Length < c)
+            {
+                if(userBoards[c] == boardName)
+                {
+                    c++;
+                }
+                else
+                {
+                    newsubs = newsubs + userBoards[c] + ",";
+                }
+            }
+
+            query = "UPDATE Users SET subsciptions = '" + newsubs + "' WHERE username = '" + currentUser.Username + "'";
+
+            //add confirmation
+            connection.Close();
         }
 
         public List<Models.Boards_Model> GetAllBoards() //Gets all the boards that have been created, could maybe look into adding a page system later?
