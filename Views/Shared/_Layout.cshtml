@@ -15,9 +15,7 @@
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand text-muted">
-                <img src="~Images/UoH_logo.png" width="30" height="30" class="d-inline-block align-top" alt=""> Notice board application
-            </a>
+            <a class="navbar-brand text-muted"> Notice board application</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,19 +38,12 @@
             </div>
         </nav>
     </header>
-    <!-- JumboTron -->
-    <div class="jumbotron jumbotron-fluid mb-0">
-        <h1 class="display-4">@ViewData["Title"]</h1>
-        <h4 class="">
-            Welcome back, @Html.DisplayFor(model => model.Username)
-        </h4>
-    </div>
     <main role="main">
         @RenderBody()
     </main>
 
     <!-- Footer -->
-    <footer class="text-center navbar-fixed-bottom text-lg-start">
+    <footer class="page-footer font-small blue p-3">
         <div class="footer-copyright page-footer text-center py-3">
             00084_ACW_2021:
             <a href=""> Web_Application</a>

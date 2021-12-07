@@ -1,0 +1,33 @@
+﻿@model _500084_ACW_2021_Web_Application.Models.Boards_Model
+@{ ViewData["Title"] = "Create a Board";
+
+}
+<div class="container">
+    <form asp-action="createBoard">
+        <div class="input-group form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" id="uErrorMesage" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <select asp-for="IsSociety" name="isSociety" class="custom-select">
+                <option selected>Custom Select Menu</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
+        <div class="input-group form-group">
+            <label asp-for="Description">Description:</label>
+            <textarea asp-for="Description" class="form-control" rows="5" id="Description"></textarea>
+            <span asp-validation-for="Description" id="uErrorMesage" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="CreateBoard" class="btn btn-info" />
+        </div>
+    </form>
+    <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+            <a asp-action="CREATEBOARD"> Dont have an account? Click me here to sign up</a>
+        </div>
+    </div>
+</div>

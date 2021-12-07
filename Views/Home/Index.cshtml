@@ -1,35 +1,42 @@
 ﻿@model _500084_ACW_2021_Web_Application.Models.User_Model
-
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-body">
-                <form asp-action="Login">
-                    <div class="input-group form-group">
-                        <label asp-for="Username" class="control-label"></label>
-                        <input asp-for="Username" class="form-control" />
-                        <span asp-validation-for="Username" id="uErrorMesage" class="text-danger"></span>
+<section class="vh-80 ">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                            <form asp-action="Login">
+                                <div class="input-group form-group">
+                                    <label asp-for="Username" class="control-label m-3"></label>
+                                    <input asp-for="Username" class="form-control" />
+                                    <span asp-validation-for="Username" id="uErrorMesage" class="text-danger"></span>
+                                </div>
+                                <div class="input-group form-group">
+                                    <label asp-for="Password" class="control-label m-3"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" id="pErrorMesage" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="LOGIN" class="btn  m-3">
+                                </div>
+                            </form>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-center links">
+                                    <a asp-action="CreateUser"> Dont have an account? Click me here to sign up</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" id="pErrorMesage" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="LOGIN" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    <a asp-action="CreateUser"> Don't have an account? Create one free</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-@section Scripts
+    @section Scripts
 {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

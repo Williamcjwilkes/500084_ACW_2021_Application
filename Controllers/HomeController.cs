@@ -31,7 +31,7 @@ namespace _500084_ACW_2021_Web_Application.Controllers
             }
             else 
             {
-                return View("Failure", user);
+                return View("Index", user);
             }
         }
 
@@ -48,12 +48,9 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         public IActionResult CreateUser(User_Model createUser)
         {
             DBInterfacer user = new DBInterfacer();
-            createUser.AccType = "admin";
-            createUser.Subscriptions = "CS , Gardening";
             user.CreateUser(createUser);
-            
-
-            return View("CreateUser");
+           
+            return View("Index");
         }
         public IActionResult More()
         {
@@ -66,6 +63,13 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         public IActionResult Help()
         {
             return View();
+        }
+
+        public IActionResult createBoard(Boards_Model board)
+        {
+            DBInterfacer boards = new DBInterfacer();
+            boards.CreateBoard(board);
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
