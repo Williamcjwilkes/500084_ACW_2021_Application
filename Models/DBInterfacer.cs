@@ -19,21 +19,21 @@ namespace _500084_ACW_2021_Web_Application
             string query = "SELECT * FROM 'Users' where username='" + username + "'";
             var connection = new SQLiteConnection(dBase);
             connection.Open();
-  
+
             var command = new SQLiteCommand(query, connection);
             SQLiteDataReader dataReader = command.ExecuteReader();
 
-                while (dataReader.Read())
-                {
-                    currentUser.Username = dataReader.GetString(1);
-                    currentUser.Password = dataReader.GetString(2);
-                    currentUser.EmailAddress = dataReader.GetString(3);
-                    currentUser.FirstName = dataReader.GetString(4);
-                    currentUser.LastName = dataReader.GetString(5);
-                    currentUser.AccType = dataReader.GetString(6);
-                    currentUser.Subscriptions = dataReader.GetString(7);
-                }  
-            
+            while (dataReader.Read())
+            {
+                currentUser.Username = dataReader.GetString(1);
+                currentUser.Password = dataReader.GetString(2);
+                currentUser.EmailAddress = dataReader.GetString(3);
+                currentUser.FirstName = dataReader.GetString(4);
+                currentUser.LastName = dataReader.GetString(5);
+                currentUser.AccType = dataReader.GetString(6);
+                currentUser.Subscriptions = dataReader.GetString(7);
+            }
+
             connection.Close();
             return currentUser;
         }
@@ -144,7 +144,7 @@ namespace _500084_ACW_2021_Web_Application
         public void SubscribetoBoard(string boardName, Models.User_Model currentUser) //Subscribes the user to a selected board
         {
             var connection = new SQLiteConnection(dBase);
-            int numUsers = 0;         
+            int numUsers = 0;
 
             connection.Open();
             string query = "SELECT numUsers FROM 'Boards' WHERE name = '" + boardName + "'";
@@ -153,7 +153,7 @@ namespace _500084_ACW_2021_Web_Application
 
             numUsers = Int32.Parse(dataReader.GetString(0));
 
-            query = "UPDATE Boards SET numUsers = '" + (numUsers+1) + "' WHERE name = '" + boardName + "'";
+            query = "UPDATE Boards SET numUsers = '" + (numUsers + 1) + "' WHERE name = '" + boardName + "'";
             command = new SQLiteCommand(query, connection);
             command.ExecuteNonQuery();
 
@@ -184,9 +184,9 @@ namespace _500084_ACW_2021_Web_Application
 
             string[] userBoards = (currentUser.Subscriptions.Split(','));
 
-            while(userBoards.Length < c)
+            while (userBoards.Length < c)
             {
-                if(userBoards[c] == boardName)
+                if (userBoards[c] == boardName)
                 {
                     c++;
                 }
@@ -205,7 +205,7 @@ namespace _500084_ACW_2021_Web_Application
         public List<Models.Boards_Model> GetAllBoards() //Gets all the boards that have been created, could maybe look into adding a page system later?
         {
             string request = "SELECT name, numUsers, isSociety, description FROM 'Boards'";
-            List<Models.Boards_Model> boards = new List<Models.Boards_Model> ();
+            List<Models.Boards_Model> boards = new List<Models.Boards_Model>();
             var connection = new SQLiteConnection(dBase);
 
             connection.Open();
@@ -237,7 +237,7 @@ namespace _500084_ACW_2021_Web_Application
             connection.Open();
             SQLiteDataReader dataReader;
 
-            for(int c = 0; c < userBoards.Length; c++)
+            for (int c = 0; c < userBoards.Length; c++)
             {
                 string request = "SELECT name, numUsers, isSociety, description FROM 'Boards' WHERE id = '" + userBoards[c] + "'";
                 var command = new SQLiteCommand(request, connection);

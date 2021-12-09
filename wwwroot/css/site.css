@@ -1,1 +1,36 @@
-﻿
+﻿body {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.card {
+    border: solid 2px !important;    
+    border-color: #00828b !important;
+    border-radius: 25px!important;
+}
+.card-body {
+}
+#cardStyles{
+    background-color:#00828b!important;
+}
+
+.crd-rounded {
+    border-radius: 25px 25px 0px 0px !important;
+}
+
+#navbar-brand {
+    color: #00828b !important;
+    font-size: 1.2rem;
+}
+.navbar .navbar-nav > li > a {
+    color: #00828b!important;
+    font-size:1.2rem;
+}
+
+.navbar .navbar-brand {
+    color: #00828b !important;
+    font-size: 1.2rem;
+}
+

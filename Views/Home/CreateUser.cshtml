@@ -1,144 +1,315 @@
 ﻿@model _500084_ACW_2021_Web_Application.Models.User_Model
-<div class="card">
-    <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">Subscripitions</a>
-    </div>
-    <div id="collapseThree" class="collapse" data-parent="#accordion">
-        <div class="card-body">
+<section class="vh-80 ">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-light" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-centre">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase">Create an account</h2>
+                            <p class="text-white-50 mb-5">Please enter details below</p>
+                            <form asp-action="CreateUser">
+                                <div class=" form-group">
+                                    <label asp-for="Username" class="control-label"></label>
+                                    <input asp-for="Username" class="form-control" />
+                                    <span asp-validation-for="Username" id="uErrorMesage" class="text-danger"></span>
+                                </div>                                
+                                <div class=" form-group">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" id="pErrorMesage" class="text-danger"></span>
+                                </div>
+                                <div class=" form-group">
+                                    <label asp-for="EmailAddress" class="control-label"></label>
+                                    <input asp-for="EmailAddress" class="form-control" />
+                                    <span asp-validation-for="EmailAddress" id="pErrorMesage" class="text-danger"></span>
+                                </div>
 
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Afro_Caribbean_society" name="Afro_Caribbean_society" value="Afro Caribbean society">
-                <label class="custom-control-label" for="Afro_Caribbean_society">Afro Caribbean society</label>
+                                <div class="form-group">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" class="form-control" />
+                                    <span asp-validation-for="FirstName" id="uErrorMesage" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="LastName" asp-for="LastName">Last Name</label>
+                                    <input asp-for="LastName" class="form-control" />
+                                    <span asp-validation-for="LastName" id="pErrorMesage" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="AccType" asp-for="AccType">Account Type</label>
+                                    <input asp-for="AccType" class="form-control" />
+                                    <span asp-validation-for="AccType" id="pErrorMesage" class="text-danger"></span>
+                                </div>
+
+                            <h3>Subscribe to societies</h3>
+                            <hr />
+                            <div class="text-left">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Afro_Caribbean_society" name="Afro_Caribbean_society" value="Afro Caribbean society">
+                                    <label class="custom-control-label" for="Afro_Caribbean_society">Afro Caribbean society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Amnesty_society" name="Amnesty_society" value="Amnesty society">
+                                    <label class="custom-control-label" for="Amnesty_society">Amnesty society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Anime_society" name="Anime_society" value="Anime society">
+                                    <label class="custom-control-label" for="Anime_society">Anime society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Arts_and_crafts_society" name="Arts_and_crafts_society" value="Arts and crafts society">
+                                    <label class="custom-control-label" for="Arts_and_crafts_society">Arts and crafts society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Big_Band_society" name="Big_Band_society" value="Big Band society">
+                                    <label class="custom-control-label" for="Big_Band_society">Big Band society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Biochemistry_society" name="Biochemistry_society" value="Biochemistry society">
+                                    <label class="custom-control-label" for="Biochemistry_society">Biochemistry society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Biomedical_society" name="Biomedical_society" value="Biomedical society">
+                                    <label class="custom-control-label" for="Biomedical_society">Biomedical society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Board_game_society" name="Board_game_society" value="Board game society">
+                                    <label class="custom-control-label" for="Board_game_society">Board game society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Book_and_film_society" name="Book_and_film_society" value="Book and film society">
+                                    <label class="custom-control-label" for="Book_and_film_society">Book and film society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Catholic_society" name="Catholic_society" value="Catholic society">
+                                    <label class="custom-control-label" for="Catholic_society">Catholic society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Christian_society" name="Christian_society" value="Christian society">
+                                    <label class="custom-control-label" for="Christian_society">Christian society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Computer_science_society" name="Computer_science_society" value="Computer science society">
+                                    <label class="custom-control-label" for="Computer_science_society">Computer science society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Conservative_association_society" name="Conservative_association_society" value="Conservative association society">
+                                    <label class="custom-control-label" for="Conservative_association_society">Conservative association society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Criminology_society" name="Criminology_society" value="Criminology society">
+                                    <label class="custom-control-label" for="Criminology_society">Criminology society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Crystal_clear_society" name="Crystal_clear_society" value="Crystal clear societyy">
+                                    <label class="custom-control-label" for="Crystal_clear_society">Crystal clear society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Disney_and_Pixar_society" name="Disney_and_Pixar_society" value="Disney and Pixar society">
+                                    <label class="custom-control-label" for="Disney_and_Pixar_society">Disney_and_Pixar society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Doctor_who_society" name="Doctor_who_society" value="Doctor who society ">
+                                    <label class="custom-control-label" for="Doctor_who_society">Doctor who society </label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Drama_society" name="Drama_society" value="Drama society">
+                                    <label class="custom-control-label" for="Drama_society">Drama society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Duke_of_Edinburgh_society" name="Duke_of_Edinburgh_society" value="Duke of Edinburgh society">
+                                    <label class="custom-control-label" for="Duke_of_Edinburgh_society">Duke of Edinburgh society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Enactus_society" name="Enactus_society" value="Enactus society">
+                                    <label class="custom-control-label" for="Enactus_society">Enactus society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="English_society" name="English_society" value="English society">
+                                    <label class="custom-control-label" for="English_society">English society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Eternity_society" name="Eternity_society" value="Eternity society">
+                                    <label class="custom-control-label" for="Eternity_society">Eternity society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Extreme_Ironing_society" name="Extreme_Ironing_society" value="Extreme Ironing society">
+                                    <label class="custom-control-label" for="Extreme_Ironing_society">Extreme Ironing society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Forensic_society" name="Forensic_society" value="Forensic society">
+                                    <label class="custom-control-label" for="Forensic_society">Forensic society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Gaming_society" name="Gaming_society" value="Gaming society">
+                                    <label class="custom-control-label" for="Gaming_society">Gaming society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Gardening_society" name="Gardening_society" value="Gardening society">
+                                    <label class="custom-control-label" for="Gardening_society">Gardening society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Geography_society" name="Geography_society" value="Geography society">
+                                    <label class="custom-control-label" for="Geography_society">Geography society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Hindu_society" name="Hindu_society" value="Hindu society">
+                                    <label class="custom-control-label" for="Hindu_society">Hindu society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Hullfire_newspaper_society" name="Hullfire_newspaper_society" value="Hullfire newspaper society">
+                                    <label class="custom-control-label" for="Hullfire_newspaper_society">Hullfire newspaper society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="HYMS_acute_card_and_anaesthetics_society" name="HYMS_acute_card_and_anaesthetics_society" value="HYMS acute card and anaesthetics society">
+                                    <label class="custom-control-label" for="HYMS_acute_card_and_anaesthetics_society">HYMS acute card and anaesthetics society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="HYMS_dermatology_society" name="HYMS_dermatology_society" value="HYMS dermatology society">
+                                    <label class="custom-control-label" for="HYMS_dermatology_society">HYMS dermatology society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="HYMS_physician_associate_society" name="HYMS_physician_associate_society" value="HYMS physician associate society">
+                                    <label class="custom-control-label" for="HYMS_physician_associate_society">HYMS physician associate society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="International_society" name="International_society" value="International society">
+                                    <label class="custom-control-label" for="International_society">International society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Islamic_society" name="Islamic_society" value="Islamic society">
+                                    <label class="custom-control-label" for="Islamic_society">Islamic society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="JAM_radio_society" name="JAM_radio_society" value="JAM radio society">
+                                    <label class="custom-control-label" for="JAM_radio_society">JAM radio society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Korean_culture_society" name="Korean_culture_society" value="Korean culture society">
+                                    <label class="custom-control-label" for="Korean_culture_society">Korean culture society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Kuwaiti_students_society" name="Kuwaiti_students_society" value="Kuwaiti students society">
+                                    <label class="custom-control-label" for="Kuwaiti_students_society">Kuwaiti students society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Labour_club_society" name="Labour_club_society" value="Labour club society">
+                                    <label class="custom-control-label" for="Labour_club_society">Labour club society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Law_society" name="Law_society" value="Law_society">
+                                    <label class="custom-control-label" for="Law_society">Law society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Liberal_democrats_society" name="Liberal_democrats_society" value="Liberal democrats society">
+                                    <label class="custom-control-label" for="Liberal_democrats society">Liberal_democrats_society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Links_society" name="Links_society" value="Links_society">
+                                    <label class="custom-control-label" for="Links_society">Links society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Malaysian_student_association_society" name="Malaysian_student_association_society" value="Malaysian student association society">
+                                    <label class="custom-control-label" for="Malaysian_student_association society">Malaysian student association society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Mathematics_society" name="Mathematics_society" value="Mathematics society">
+                                    <label class="custom-control-label" for="Mathematics_society">Mathematics society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Medsoc_society" name="Medsoc_society" value="Medsoc society">
+                                    <label class="custom-control-label" for="Medsoc_society">Medsoc society</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Mental_health_society" name="Mental_health_society" value="Mental health society">
+                                    <label class="custom-control-label" for="Mental_health_society">Mental health society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Music_society" name="Music_society" value="Music society">
+                                    <label class="custom-control-label" for="Music_society">Music society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Nursing_society" name="Nursing_society" value="Nursing society">
+                                    <label class="custom-control-label" for="Nursing_society">Nursing society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Pakistan_society" name="Pakistan_society" value="Pakistan society">
+                                    <label class="custom-control-label" for="Pakistan_society">Pakistan society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Paramedic_society" name="Paramedic_society" value="Paramedic society">
+                                    <label class="custom-control-label" for="Paramedic_society">Paramedic society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Pokémon_society" name="Pokémon_society" value="Pokémon society">
+                                    <label class="custom-control-label" for="Pokémon_society">Pokémon society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Politics_society" name="Politics_society" value="Politics society">
+                                    <label class="custom-control-label" for="Politics_society">Politics society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Psychology_society" name="Psychology_society" value="Psychology society">
+                                    <label class="custom-control-label" for="Psychology_society">Psychology society </label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Raising_and_giving_society" name="Raising_and_giving_society" value="Raising and giving society">
+                                    <label class="custom-control-label" for="Raising_and_giving_society">Raising and giving society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Robotics_society" name="Robotics_society" value="Robotics society">
+                                    <label class="custom-control-label" for="Robotics_society">Robotics society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Rock_society" name="Rock_society" value="Rock society">
+                                    <label class="custom-control-label" for="Rock_society">Rock society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Surgical_society" name="Surgical_society" value="Surgical society">
+                                    <label class="custom-control-label" for="Surgical_society">Surgical society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Tamil_and_Mallu_society" name="Tamil_and_Mallu_society" value="Tamil and Mallu society">
+                                    <label class="custom-control-label" for="Tamil_and_Mallu_society">Tamil and Mallu society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Torch_tv" name="Torch_tv" value="Torch tv">
+                                    <label class="custom-control-label" for="Torch_tv">Torch tv</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Wargames_and_roleplay_society" name="Wargames_and_roleplay_society" value="Wargames and roleplay society">
+                                    <label class="custom-control-label" for="Wargames_and_roleplay_society">Wargames and roleplay society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Wilderness_medicine_society" name="Wilderness_medicine_society" value="Wilderness medicine society">
+                                    <label class="custom-control-label" for="Wilderness_medicine_society">Wilderness medicine society</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="Zoology_society" name="Zoology_society" value="Zoology society">
+                                    <label class="custom-control-label" for="Zoology_society">Zoology society</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="CREATEUSER" class="btn btn-info btn-block mt-3">
+                            </div>
+                                </form>
+                                <div class="d-flex justify-content-center text-center links" >
+                                    <a asp-action="Index"> Already have an account? Click me here to sign in</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Amnesty_society" name="Amnesty_society" value="Amnesty society">
-                <label class="custom-control-label" for="Amnesty_society">Amnesty society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Anime_society" name="Anime_society" value="Anime society">
-                <label class="custom-control-label" for="Anime_society">Anime society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Arts_and_crafts_society" name="Arts_and_crafts_society" value="Arts and crafts society">
-                <label class="custom-control-label" for="Arts_and_crafts_society">Arts and crafts society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Big_Band_society" name="Big_Band_society" value="Big Band society">
-                <label class="custom-control-label" for="Big_Band_society">Big Band society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Biochemistry_society" name="Biochemistry_society" value="Biochemistry society">
-                <label class="custom-control-label" for="Biochemistry_society">Biochemistry society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Biomedical_society" name="Biomedical_society" value="Biomedical society">
-                <label class="custom-control-label" for="Biomedical_society">Biomedical society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Board_game_society" name="Board_game_society" value="Board game society">
-                <label class="custom-control-label" for="Board_game_society">Board game society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Book_and_film_society" name="Book_and_film_society" value="Book and film society">
-                <label class="custom-control-label" for="Book_and_film_society">Book and film society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Catholic_society" name="Catholic_society" value="Catholic society">
-                <label class="custom-control-label" for="Catholic_society">Catholic society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Christian_society" name="Christian_society" value="Christian society">
-                <label class="custom-control-label" for="Christian_society">Christian society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Computer_science_society" name="Computer_science_society" value="Computer science society">
-                <label class="custom-control-label" for="Computer_science_society">Computer science society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Conservative_association_society" name="Conservative_association_society" value="Conservative association society">
-                <label class="custom-control-label" for="Conservative_association_society">Conservative association society</label>
-            </div>
-
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="Criminology_society" name="Criminology_society" value="Criminology society">
-                <label class="custom-control-label" for="Criminology_society">Criminology society</label>
-            </div>
-
-            <!--
-                            Crystal clear society
-                            Darts society
-                            Disney and Pixar society
-                            Doctor who society
-                            Drama society
-                            Duke of Edinburgh society
-                            Enactus society
-                            English society
-                            Eternity society
-                            Extreme Ironing society
-                            Forensic society
-                            Gaming society
-                            Gardening society
-                            Geography society
-                            Hindu society
-                            Hullfire newspaper society
-                            HYMS acute card and anaesthetics society
-                            HYMS dermatology society
-                            HYMS physician associate society
-                            HYMS trauma and orthopaedics society
-                            International society
-                            Islamic society
-                            JAM radio society
-                            Korean culture society
-                            Kuwaiti students society
-                            Labour club society
-                            Law society
-                            Liberal democrats society
-                            Links society
-                            Malaysian student association society
-                            Mathematics society
-                            Medsoc society
-                            Mental health society
-                            Music society
-                            Nursing society
-                            Pakistan society
-                            Paramedic society
-                            Pokémon society
-                            Politics society
-                            Psychology society
-                            Raising and giving society
-                            Robotics society
-                            Rock society
-                            Surgical society
-                            Tamil and Mallu society
-                            Torch tv
-                            Wargames and roleplay society
-                            Wilderness medicine society
-                            Zoology society
-            -->
         </div>
-    </div>
-</div>
-<div class="form-group">
-    <input type="submit" value="CREATEUSER" class="btn btn-info" />
-</div>
-<div class="card-footer">
-    <div class="d-flex justify-content-center links">
-        <a asp-action="Index"> Already have an account? Click me here to sign in</a>
-    </div>
-</div>
-
+</section>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

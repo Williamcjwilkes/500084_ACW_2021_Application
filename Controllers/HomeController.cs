@@ -48,9 +48,10 @@ namespace _500084_ACW_2021_Web_Application.Controllers
         public IActionResult CreateUser(User_Model createUser)
         {
             DBInterfacer user = new DBInterfacer();
+            createUser.Subscriptions = "pokemon society";
             user.CreateUser(createUser);
-           
-            return View("Index");
+
+            return View("CreateUser");
         }
         public IActionResult More()
         {
@@ -65,10 +66,9 @@ namespace _500084_ACW_2021_Web_Application.Controllers
             return View();
         }
 
-        public IActionResult createBoard(Boards_Model board)
+        public IActionResult CreateBoard(Boards_Model board)
         {
-            DBInterfacer boards = new DBInterfacer();
-            boards.CreateBoard(board);
+        
             return View("Index");
         }
 
